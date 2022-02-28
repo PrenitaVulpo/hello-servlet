@@ -1,5 +1,7 @@
 package com.example.helloservlet;
 
+import com.example.helloservlet.model.ClienteModel;
+import com.example.helloservlet.model.ListaClientes;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,6 +13,9 @@ public class Cliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nomeCliente = request.getParameter("nomeCliente");
+
+        ListaClientes listaClientes = new ListaClientes();
+        listaClientes.adicionar(new ClienteModel(nomeCliente));
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
