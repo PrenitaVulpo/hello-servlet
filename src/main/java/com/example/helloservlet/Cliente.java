@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "Cliente", value = "/cliente")
 public class Cliente extends HttpServlet {
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nomeCliente = request.getParameter("nomeCliente");
 
         PrintWriter out = response.getWriter();
