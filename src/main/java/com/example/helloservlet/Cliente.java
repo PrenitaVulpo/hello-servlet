@@ -19,10 +19,8 @@ public class Cliente extends HttpServlet {
 
         listaClientes.adicionar(new ClienteModel(nomeCliente));
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + nomeCliente + " cadastrado com sucesso" + "</h1>");
-        out.println("</body></html>");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("clienteCadastrado.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
