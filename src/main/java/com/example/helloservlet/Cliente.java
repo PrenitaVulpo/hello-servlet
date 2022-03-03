@@ -20,7 +20,6 @@ public class Cliente extends HttpServlet {
         listaClientes.adicionar(new ClienteModel(nomeCliente));
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("clienteCadastrado.jsp");
-        requestDispatcher.forward(request, response);
     }
 
     @Override
