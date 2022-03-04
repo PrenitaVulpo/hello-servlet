@@ -20,20 +20,26 @@ public class Cliente extends HttpServlet {
         listaClientes.adicionar(new ClienteModel(nomeCliente));
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("clienteCadastrado.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        ListaClientes listaClientes = new ListaClientes();
-        List<ClienteModel> clientes = listaClientes.buscaClientes();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<ClienteModel> clientes = this.listaClientes.buscaClientes();
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<ul>");
-        for (ClienteModel clienteModel: clientes){
-            out.println("<li>"+clienteModel.getNome()+"</li>");
-        }
-        out.println("</ul>");
-        out.println("</body></html>");
+        request.setAttribute("clientes", clientes);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("listaClientes.jsp");
+
+        requestDispatcher.forward(request, response);
+
+//        PrintWriter out = response.getWriter();
+//        out.println("<html><body>");
+//        out.println("<ul>");
+//        for (ClienteModel clienteModel: clientes){
+//            out.println("<li>"+clienteModel.getNome()+"</li>");
+//        }
+//        out.println("</ul>");
+//        out.println("</body></html>");
     }
 }
