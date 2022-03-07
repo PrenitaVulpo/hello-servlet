@@ -25,6 +25,10 @@ public class Cliente extends HttpServlet {
         RequestDispatcher dispatchToConta = request.getRequestDispatcher("Conta");
         request.setAttribute("clientes", listaClientes);
         dispatchToConta.forward(request, response);
+
+        RequestDispatcher dispatchToFormContas = request.getRequestDispatcher("formConta.jsp");
+        request.setAttribute("clientes", listaClientes);
+        dispatchToFormContas.forward(request, response);
     }
 
     @Override

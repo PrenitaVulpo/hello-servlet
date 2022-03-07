@@ -11,6 +11,7 @@
     <title>Contas</title>
 </head>
 <body>
+    Lista de contas:
     <ul>
         <%
             List<ContaModel> contas = (List<ContaModel>) request.getAttribute("contas");
