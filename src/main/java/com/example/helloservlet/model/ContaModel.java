@@ -1,21 +1,20 @@
 package com.example.helloservlet.model;
 
-import com.example.helloservlet.Cliente;
 
 public class ContaModel {
     private Double saldo;
-    private Cliente cliente;
+    private ClienteModel cliente;
 
-    public ContaModel(Double saldo, Cliente cliente){
+    public ContaModel(Double saldo, ClienteModel cliente){
         this.saldo = saldo;
         this.cliente = cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(ClienteModel cliente) {
         this.cliente = cliente;
     }
 
-    public Cliente getCliente() {
+    public ClienteModel getCliente() {
         return cliente;
     }
 

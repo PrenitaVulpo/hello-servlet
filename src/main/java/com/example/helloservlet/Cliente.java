@@ -21,6 +21,10 @@ public class Cliente extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("clienteCadastrado.jsp");
         requestDispatcher.forward(request, response);
+
+        RequestDispatcher dispatchToConta = request.getRequestDispatcher("Conta");
+        request.setAttribute("clientes", listaClientes);
+        dispatchToConta.forward(request, response);
     }
 
     @Override
